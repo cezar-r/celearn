@@ -19,6 +19,9 @@ class CountVectorizer:
 				token_phrase.append(doc_split.count(word))
 			phrases.append(token_phrase)
 		return phrases
+	
+	def get_feature_names(self):
+		return self._unique_words
 
 
 	def _clean(self, corpus):
@@ -26,14 +29,3 @@ class CountVectorizer:
 		for doc in corpus:
 			clean_corpus.append(REGEX.sub(' ', doc))
 		return clean_corpus
-
-
-if __name__ == '__main__':
-
-
-	corpus =[['This is a dog and this is a dog'],
-			['This is a cat']]
-
-	vect = CountVectorizer()
-	vector = vect.fit_transform(corpus)
-	print(vector)
