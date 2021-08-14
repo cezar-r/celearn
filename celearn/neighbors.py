@@ -2,6 +2,9 @@ from math_ops import mode
 from metrics import accuracy_score
 
 class KNearestNeighbors:
+	
+	def __init__(self, neighbors = 3):
+		self.neighbors = neighbors
 
 	def fit(self, X_train, y_train):
 		self.classes_dict = {}
@@ -30,41 +33,5 @@ class KNearestNeighbors:
 					distances.append(self._euc_dist(X_test[i], row))
 					classes.append(k)
 			dist_classes_dict = dict(sorted(zip(distances, classes), key = lambda x : x[0]))
-			preds.append([mode(list(dist_classes_dict.values())[:k_neighbors])])
+			preds.append([mode(list(dist_classes_dict.values())[:self.neighbors])])
 		return preds
-
-
-
-if __name__ == '__main__':
-	from ensemble import RandomForest
-
-
-
-	X_train = [[1, 2],
-			[1, 1], 
-			[0, 1],
-			[6, 8],
-			[6, 9],
-			[5, 10]]
-
-	y_train = [[1],
-			[1],
-			[1],
-			[0],
-			[0],
-			[0]]
-
-	X_test = [[1, 0],
-			[0, 0],
-			[7, 8],
-			[6, 7]]
-
-	y_test = [[1],
-			[1],
-			[0],
-			[0]]
-
-	clf = KNearestNeighbors()
-	clf.fit(X_train, y_train)
-	y_hat = clf.predict(X_test)
-	print(accuracy_score(y_hat, y_test))
