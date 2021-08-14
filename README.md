@@ -45,7 +45,7 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## ensemble.RandomForests()
+## ensemble.RandomForest()
 - Random forest classifier that fits a number of decision tree classifiers on sub samples of data and uses averaging to improve accuracy, as well as limiting over fitting.
 
 ```python
