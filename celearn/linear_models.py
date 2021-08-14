@@ -4,9 +4,9 @@ from metrics import rmse
 
 class LinearRegression:
 
-	def __init__(self):
-		self.learning_rate = 0.0001
-		self.num_epochs = 100000
+	def __init__(self, learning_rate = 0.0001, num_epochs = 100000):
+		self.learning_rate = learning_rate
+		self.num_epochs = num_epochs
 
 	def fit(self, X_train, y_train):
 		if type(X_train) is not np.array:
