@@ -63,16 +63,3 @@ class RandomForest(object):
         labels.
         '''
         return (self.predict(X) == y).mean()
-
-if __name__ == '__main__':
-    from sklearn.model_selection import train_test_split
-    import pandas as pd
-
-    df = pd.read_csv('./data/congressional_voting.csv', names=['Party']+list(range(1, 17)))
-    y = df.pop('Party').values
-    X = df.values
-    X_train, X_test, y_train, y_test = train_test_split(X, y)
-
-    rf = RandomForest(num_trees=10, num_features=(X.shape[1]//3))
-    rf.fit(X_train, y_train)
-    print("Random Forest score:", rf.score(X_test, y_test))
