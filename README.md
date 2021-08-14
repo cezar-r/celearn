@@ -82,3 +82,93 @@ vectorizer.get_feature_names()
 X
 >>> [[1, 2, 0, 2, 2, 2], [0, 1, 1, 0, 1, 1]]
 ```
+
+## metrics.rmse(y_hat, y_test)
+- Returns the mean squared error between two lists
+```python
+y_test = [[1], [2], [3], [4], [1], [2], [3]]
+y_pred = [[1], [2], [3], [3], [1], [2], [3]]
+
+rmse(y_hat, y_test)
+>>> 0.14
+```
+
+## metrics.accuracy_score(y_hat, y_test)
+- Returns the accuracy of the predicted labels
+
+```python
+y_test = [[1], [2], [3], [4], [1], [2], [3]]
+y_pred = [[1], [2], [3], [3], [1], [2], [3]]
+
+accuracy_score(y_test, y_pred)
+>>> 0.86
+```
+
+## metrics.precision_score(y_hat, y_test)
+- Returns the precision of the predicted labels. Currently only supports binary classification
+- Uses (TP/(TP + FP)) to calculate precision.
+
+```python
+y_test = [[1], [0], [1], [1], [0]]
+y_pred = [[1], [1], [1], [1], [0]]
+
+precision_score(y_hat, y_test)
+>>> 0.8
+```
+
+## metrics.recall_score(y_hat, y_test)
+- Returns the recall of the predicted labels. Currently only supports binary classification
+- Uses (TP/(TP + FN)) to calculate recall
+
+```python
+y_test = [[1], [0], [1], [1], [0]]
+y_pred = [[1], [1], [1], [1], [0]]
+
+recall_score(y_hat, y_test)
+>>> 1.0
+```
+
+## metrics.f1_score(y_hat, y_pred)
+- Returns the average score between recall and precision. Currently only supports binary classification
+```python
+y_test = [[1], [0], [1], [1], [0]]
+y_pred = [[1], [1], [1], [1], [0]]
+
+f1_score(y_hat, y_test)
+>>> .89
+```
+
+## metrics.classification_report(y_hat, y_test)
+- Returns a report on the predicted labels. Report includes precision, recall, f1-score and support
+- Report can be accessed in dictionary format by accessing the `.as_dict` attribute
+
+```python
+y_test = [[1], [2], [3], [4], [1], [2], [3]]
+y_pred = [[1], [2], [3], [3], [1], [2], [3]]
+
+report = classification_report(y_hat, y_test)
+report 
+>>>      labels    precision       recall     f1-score      support
+>>>
+>>>           1          1.0          1.0          1.0            2
+>>>           2          1.0          1.0          1.0            2
+>>>           3         0.86          1.0         0.92            2
+>>>           4          1.0         0.86         0.92            1
+report.as_dict
+>>> {1: {'precision': 1.0, 
+>>>      'recall': 1.0, 
+>>>      'f1-score': 1.0, 
+>>>      'support': 2}, 
+>>>  2: {'precision': 1.0, 
+>>>      'recall': 1.0, 
+>>>      'f1-score': 1.0, 
+>>>      'support': 2}, 
+>>>  3: {'precision': 0.86, 
+>>>      'recall': 1.0, 
+>>>      'f1-score': 0.92, 
+>>>      'support': 2}, 
+>>>  4: {'precision': 1.0, 
+>>>      'recall': 0.86, 
+>>>      'f1-score': 0.92, 
+>>>      'support': 1}}
+```
