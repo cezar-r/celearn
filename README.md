@@ -72,7 +72,7 @@ accuracy_score(y_hat, y_test)
 from celearn.vectorizer import Vectorizer
 
 corpus =[['This is a dog and this is a dog'],
-			  ['This is a cat']]
+         ['This is a cat']]
 vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(corpus)
 vectorizer.get_feature_names()
