@@ -75,8 +75,8 @@ corpus =[['This is a dog and this is a dog'],
 			  ['This is a cat']]
 vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(corpus)
-print(vectorizer.get_feature_names())
+vectorizer.get_feature_names()
 >>> ['and', 'a', 'cat', 'dog', 'this', 'is']
-print(X)
+X
 >>> [[1, 2, 0, 2, 2, 2], [0, 1, 1, 0, 1, 1]]
 ```
