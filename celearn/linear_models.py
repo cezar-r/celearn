@@ -4,12 +4,9 @@ from metrics import rmse
 
 class LinearRegression:
 
-
 	def __init__(self):
 		self.learning_rate = 0.0001
 		self.num_epochs = 100000
-
-
 
 	def fit(self, X_train, y_train):
 		if type(X_train) is not np.array:
@@ -26,7 +23,6 @@ class LinearRegression:
 			self.theta = self.theta - (self.learning_rate)*cost
 
 	def _f(self, x):
-		
 		return np.matmul(x, self.theta)
 
 	def predict(self, X_test):
@@ -39,32 +35,29 @@ class LinearRegression:
 		return points
 
 
-
-
-
 X_train = [[1, 2],
-			[1, 1], 
-			[0, 1],
-			[6, 8],
-			[6, 9],
-			[5, 10]]
+           [1, 1], 
+           [0, 1],
+           [6, 8],
+           [6, 9],
+           [5, 10]]
 
 y_train = [[1],
-	[1],
-	[1],
-	[0],
-	[0],
-	[0]]
+           [1],
+           [1],
+           [0],
+           [0],
+           [0]]
 
 X_test = [[1, 0],
-		[0, 0],
-		[7, 8],
-		[6, 7]]
+          [0, 0],
+          [7, 8],
+          [6, 7]]
 
 y_test = [[1],
-		[1],
-		[0],
-		[0]]
+          [1],
+          [0],
+          [0]]
 
 clf = LinearRegression()
 clf.fit(X_train, y_train)
