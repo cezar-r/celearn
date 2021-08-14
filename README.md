@@ -69,7 +69,7 @@ accuracy_score(y_hat, y_test)
 - Returns a document term matrix 
 
 ```python
-from celearn.vectorizer import Vectorizer
+from celearn.vectorizer import CountVectorizer
 
 corpus =[['This is a dog and this is a dog'],
          ['This is a cat']]
