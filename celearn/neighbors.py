@@ -1,5 +1,5 @@
+# knn with no numpy
 from math_ops import mode
-from metrics import accuracy_score
 
 class KNearestNeighbors:
 	
