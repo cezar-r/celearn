@@ -23,7 +23,6 @@ class CountVectorizer:
 	def get_feature_names(self):
 		return self._unique_words
 
-
 	def _clean(self, corpus):
 		clean_corpus = []
 		for doc in corpus:
