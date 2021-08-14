@@ -1,4 +1,4 @@
-# celearn
+# CELearn
 Recreating SKLearn Library From Scratch
 
 
