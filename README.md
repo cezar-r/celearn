@@ -128,7 +128,7 @@ recall_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## metrics.f1_score(y_hat, y_pred)
+## metrics.f1_score(y_hat, y_test)
 - Returns the average score between recall and precision. Currently only supports binary classification
 ```python
 y_test = [[1], [0], [1], [1], [0]]
