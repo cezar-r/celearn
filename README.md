@@ -73,8 +73,10 @@ from celearn.vectorizer import CountVectorizer
 
 corpus =[['This is a dog and this is a dog'],
          ['This is a cat']]
+         
 vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(corpus)
+
 vectorizer.get_feature_names()
 >>> ['and', 'a', 'cat', 'dog', 'this', 'is']
 X
