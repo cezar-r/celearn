@@ -1,5 +1,4 @@
 import numpy as np
-from metrics import rmse
 
 class LinearRegression:
 
