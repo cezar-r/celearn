@@ -62,6 +62,8 @@ y_test = [[1], [1], [-1], [-1]]
 clf = LinearSVC()
 clf.fit(X_train, y_train)
 y_hat = clf.predict(X_test)
+
+from celearn.metrics import accuracy_score
 accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
