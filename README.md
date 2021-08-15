@@ -55,9 +55,9 @@ accuracy_score(y_hat, y_test)
 from celearn.svm import LinearSVC
 
 X_train = [[1, 2], [1, 1], [0, 1], [6, 8], [6, 9], [5, 10]]
-y_train = [[1], [1], [1], [-1], [-1], [-1]]
+y_train = [[1], [1], [1], [0], [0], [0]]
 X_test = [[1, 0], [0, 0], [7, 8], [6, 7]]
-y_test = [[1], [1], [-1], [-1]]
+y_test = [[1], [1], [0], [0]]
 
 clf = LinearSVC()
 clf.fit(X_train, y_train)
