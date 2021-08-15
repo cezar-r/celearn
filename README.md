@@ -131,6 +131,27 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
+## naive_bayes.GaussianNB()
+- Uses the naive bayes algorithim to predict classifications with the gaussian probability density function.
+- [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html)
+
+```python
+from celearn.naive_bayes import GaussianNB
+
+X_train = [[1, 2], [1, 1], [0, 1], [6, 8], [6, 9], [5, 10]]
+y_train = [[1], [1], [1], [0], [0], [0]]
+X_test = [[1, 0], [0, 0], [7, 8], [6, 7]]
+y_test = [[1], [1], [0], [0]]
+
+clf = GaussianNB()
+clf.fit(X_train, y_train)
+y_hat = clf.predict(X_test)
+
+from celearn.metrics import accuracy_score
+accuracy_score(y_hat, y_test)
+>>> 1.0
+```
+
 ## vectorizer.CountVectorizer()
 - Returns a document term matrix 
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
