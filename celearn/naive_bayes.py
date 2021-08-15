@@ -56,37 +56,3 @@ class GaussianNB:
 			cond = np.sum(np.log(self._gaussian(i, row)))
 			posteriors.append(prior + cond)
 		return self.classes[np.argmax(posteriors)]
-
-
-if __name__ == '__main__':
-
-	X_train = [[1, 2],
-				[1, 1], 
-				[0, 1],
-				[6, 8],
-				[6, 9],
-				[5, 10]]
-
-	y_train = [[1],
-		[1],
-		[1],
-		[0],
-		[0],
-		[0]]
-
-	X_test = [[1, 0],
-			[0, 0],
-			[7, 8],
-			[6, 7]]
-
-	y_test = [[1],
-			[1],
-			[0],
-			[0]]
-
-	clf = GaussianNB()
-	clf.fit(X_train, y_train)
-	y_hat = clf.predict(X_test)
-	print(y_hat)
-
-
