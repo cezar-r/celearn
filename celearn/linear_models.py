@@ -4,7 +4,6 @@ from metrics import rmse, accuracy_score
 
 class LinearRegression:
 
-
 	def __init__(self, learning_rate = 0.0001, num_epochs = 100000):
 		self.learning_rate = learning_rate
 		self.num_epochs = num_epochs
@@ -105,3 +104,46 @@ class SGDClassifier:
 		for i in range(len(X_test)):
 			preds.append([round(self._predict(X_train[i], self.coef))])
 		return preds
+
+	
+class Lasso:
+
+	def __init__(self, learning_rate = 0.001, num_epochs = 1000, l1_penalty = 800):
+		self.learning_rate = learning_rate
+		self.num_epochs = num_epochs
+		self.l1_penalty = l1_penalty
+
+
+	def fit(self, X_train, y_train):
+		if type(X_train) is not np.array:
+			X_train = np.array(X_train)
+		if type(y_train) is not np.array:
+			y_train = np.array(y_train)
+
+		self.num_features = X_train.shape[1]
+		self.num_rows = X_train.shape[0]
+
+		self.W = np.zeros(self.num_features)
+		self.b = 0
+
+		for _ in range(self.num_epochs):
+			self._update_weights(X_train, y_train)
+
+	def _update_weights(self, X_train, y_train):
+		y_hat = self.predict(X_train)
+		dw = np.zeros(self.num_features)
+		for j in range(self.num_features):
+			if self.W[j] > 0:
+				dw[j] = np.mean((-(2 * (X_train[:, j]).dot(y_train - y_hat)) + self.l1_penalty) / self.num_rows)
+			else:
+				dw[j] = np.mean((-(2 * (X_train[:, j]).dot(y_train - y_hat)) - self.l1_penalty) / self.num_rows)
+
+		db = -2 * np.sum(y_train - y_hat) / self.num_rows
+
+		self.W = self.W - self.learning_rate * dw
+		self.b = self.b - self.learning_rate * db 
+
+	def predict(self, X_test):
+		if type(X_test) is not np.array:
+			X_test = np.array(X_test)
+		return [[i] for i in X_test.dot(self.W) + self.b]
