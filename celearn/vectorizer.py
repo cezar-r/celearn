@@ -45,13 +45,14 @@ class TFIDF:
 		# document term
 		dt_dict = {}
 		for i, doc in enumerate(corpus):
+			doc_split = doc.split()
 			if labels[i][0] not in dt_dict:
 				dt_dict[labels[i][0]] = {}
 			for word in self._unique_words:
 				try:
-					dt_dict[labels[i][0]][word] += doc.split(' ').count(word)
+					dt_dict[labels[i][0]][word] += doc_split.count(word)
 				except:
-					dt_dict[labels[i][0]][word] = doc.split(' ').count(word)
+					dt_dict[labels[i][0]][word] = doc_split.count(word)
 
 		# term frequency
 		word_count = self._total_count(corpus)
