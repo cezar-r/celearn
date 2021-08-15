@@ -1,6 +1,10 @@
 # CELearn
 Recreating SKLearn Library From Scratch
 
+# Table of Contents
+- Linear Models
+    - [linear_models.LinearRegression()](#linear-regression)
+
 
 # Documentation
 
@@ -25,7 +29,7 @@ from celearn.metrics import mean_squared_error
 mean_squared_error(y_hat, y_test)
 >>> 0.006649689595207451
 ```
-
+---
 ## linear_models.LogisticRegression()
 - Uses the logisitc regression algorithim to predict classification
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
