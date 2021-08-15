@@ -87,7 +87,7 @@ X
 >>> [[1, 2, 0, 2, 2, 2], [0, 1, 1, 0, 1, 1]]
 ```
 
-## tfidf.TFIDF()
+## vectorizer.TFIDF()
 - Returns a TFIDF as dict, pandas DataFrame, or numpy matrix
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
 
