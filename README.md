@@ -3,7 +3,7 @@ Recreating SKLearn Library From Scratch
 
 # Table of Contents
 - linear_models
-    - [LinearRegression()](#linear-regression)
+    - [LinearRegression()](#linearregression)
     - [LogisticRegression()](#logistic-regression)
     - [SGDClassifier()](#sgd-classifier)
     - [Lasso()](#lasso)
