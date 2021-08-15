@@ -2,7 +2,7 @@
 Recreating SKLearn Library From Scratch
 
 # Table of Contents
-- Linear Models
+- linear_models
     - [linear_models.LinearRegression()](#linear-regression)
     - [linear_models.LogisticRegression()](#logistic-regression)
     - [linear_models.SGDClassifier()](#sgd-classifier)
@@ -31,7 +31,8 @@ Recreating SKLearn Library From Scratch
 
 # Documentation
 
-## linear_models.LinearRegression()
+## LinearRegression()
+`linear_models.LinearRegression(learning_rate = 0.0001, num_epochs = 100000)`
 - Classic least squares Linear Regression model
 - LinearRegression fits a linear model with coefficients w (w1, w2, ..., wn+1) to minimize the residual sum of squares between observed targets and predicted targets, which are predicted by the coefficients.
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
@@ -53,7 +54,8 @@ mean_squared_error(y_hat, y_test)
 >>> 0.006649689595207451
 ```
 ---
-## linear_models.LogisticRegression()
+## LogisticRegression()
+`linear_models.LogisticRegression(learning_rate = 0.0001, num_epochs = 10000)`
 - Uses the logisitc regression algorithim to predict classification
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 
@@ -74,7 +76,8 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## linear_models.SGDClassifier()
+## SGDClassifier()
+`linear_models.SGDClassifier(learning_rate = 0.0001, num_epochs = 10000)`
 - Uses logistic regression to predict classification, with stochastic gradient descent as the optimizer
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html) 
 
@@ -95,7 +98,8 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## linear_models.Lasso()
+## Lasso()
+`linear_models.Lasso(learning_rate = 0.0001, num_epochs = 1000, l1_penalty = 800)`
 - Linear model that is trained with L1 prior as the regularizer
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html)
 
@@ -116,7 +120,8 @@ mean_squared_error(y_hat, y_test)
 >>> 0.07778466006128645
 ```
 
-## neighbors.KNearestNeighbors()
+## KNearestNeighbors()
+`neighbors.KNearestNeighbors(neighbors = 3)`
 - Classifier model that uses a k-nearest neighbor voting system to classify
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
 
@@ -137,7 +142,8 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## svm.LinearSVC()
+## LinearSVC()
+`svm.LinearSVC(pos_label = 1)`
 - Classifier model that uses support vector machine to predict classifications. Currently only supports binary classification
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html)
 
@@ -158,7 +164,8 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## ensemble.RandomForest()
+## RandomForest()
+`ensemble.RandomForest(num_trees = 100, num_features = 'auto')`
 - Random forest classifier that fits a number of decision tree classifiers on sub samples of data and uses averaging to improve accuracy, as well as limiting over fitting.
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 
@@ -179,7 +186,8 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## naive_bayes.GaussianNB()
+## GaussianNB()
+`naive_bayes.GaussianNB()`
 - Uses the naive bayes algorithim to predict classifications with the gaussian probability density function.
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html)
 
@@ -200,7 +208,8 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## vectorizer.CountVectorizer()
+## CountVectorizer()
+`vectorizer.CountVectorizer()`
 - Returns a document term matrix 
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
 
@@ -220,6 +229,7 @@ X
 ```
 
 ## vectorizer.TFIDF()
+`vectorizer.TFIDF()`
 - Returns a TFIDF as dict, pandas DataFrame, or numpy matrix
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
 
@@ -245,7 +255,8 @@ df.to_numpy()
 >>>  [0.5 0.5 0.  1.  0.  0.5 1. ]]
 ```
 
-## model_selection.train_test_split(X, y)
+## train_test_split()
+`model_selection.train_test_split(X, y, test_size = .25)
 - Splits X and y into training and testing data. Default test size is .25
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
 
@@ -265,7 +276,8 @@ X_test, y_test
 >>> ([1],)
 ```
 
-## metrics.mean_squared_error(y_hat, y_test)
+## mean_squared_error()
+`metrics.mean_squared_error(y_hat, y_test)`
 - Returns the mean squared error between two lists
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)
 
@@ -279,7 +291,8 @@ mean_squared_error(y_hat, y_test)
 >>> 0.14
 ```
 
-## metrics.accuracy_score(y_hat, y_test)
+## accuracy_score()
+`metrics.accuracy_score(y_hat, y_test)`
 - Returns the accuracy of the predicted labels
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)
 
@@ -293,7 +306,8 @@ accuracy_score(y_test, y_pred)
 >>> 0.86
 ```
 
-## metrics.precision_score(y_hat, y_test)
+## precision_score()
+`metrics.precision_score(y_hat, y_test)`
 - Returns the precision of the predicted labels. Currently only supports binary classification
 - Uses (TP/(TP + FP)) to calculate precision.
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)
@@ -308,7 +322,8 @@ precision_score(y_hat, y_test)
 >>> 0.8
 ```
 
-## metrics.recall_score(y_hat, y_test)
+## recall_score()
+`metrics.recall_score(y_hat, y_test)`
 - Returns the recall of the predicted labels. Currently only supports binary classification
 - Uses (TP/(TP + FN)) to calculate recall
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)
@@ -323,7 +338,8 @@ recall_score(y_hat, y_test)
 >>> 1.0
 ```
 
-## metrics.f1_score(y_hat, y_test)
+## f1_score()
+`metrics.f1_score(y_hat, y_test)`
 - Returns the weighted average score between recall and precision. Currently only supports binary classification
 - Uses (2 * (precision * recall) / (precision + recall)) to calculate F1
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)
@@ -338,7 +354,8 @@ f1_score(y_hat, y_test)
 >>> .89
 ```
 
-## metrics.classification_report(y_hat, y_test)
+## classification_report()
+`metrics.classification_report(y_hat, y_test)`
 - Returns a report on the predicted labels. Report includes precision, recall, f1-score and support
 - Report can be accessed in dictionary format by accessing the `.as_dict` attribute
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)
