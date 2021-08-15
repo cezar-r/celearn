@@ -4,6 +4,29 @@ Recreating SKLearn Library From Scratch
 # Table of Contents
 - Linear Models
     - [linear_models.LinearRegression()](#linear-regression)
+    - [linear_models.LogisticRegression()](#logistic-regression)
+    - [linear_models.SGDClassifier()](#sgd-classifier)
+    - [linear_models.Lasso()](#lasso)
+- Neighbors
+    - [neighbors.KNearestNeighbors()](#knn)
+- SVM
+    - [svm.LinearSVC()](#linear-svc)
+- Ensemble
+    - [ensemble.RandomForest()](#random-forests)
+- Naive Bayes
+    - [naive_bayes.GaussianNB()](#gaussian-nb)
+- Vectorizer
+    - [vectorizer.CountVectorizer()](#count-vectorizer)
+    - [vectorizer.TFIDF()](#tfidf)
+- Model Selection
+    - [model_selection.train_test_split(X, y)](#train-test-split)
+- Metrics
+    - [metrics.mean_squared_error(y_hat, y_test)](#mse)
+    - [metrics.accuracy_score(y_hat, y_test)](#accuracy)
+    - [metrics.precision_score(y_hat, y_test)](#precision)
+    - [metrics.recall_score(y_hat, y_test)](#recall)
+    - [metrics.f1_score(y_hat, y_test)](#f1)
+    - [metrics.classification_report(y_hat, y_test)](#classification-report)
 
 
 # Documentation
