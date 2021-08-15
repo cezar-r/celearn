@@ -93,6 +93,7 @@ X
 
 ```python
 from celearn.vectorizer import TFIDF
+
 corpus =[['This is a dog and this is a dog'],
          ['This is a cat'],
          ['This is a frog']]
@@ -117,6 +118,8 @@ df.to_numpy()
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)
 
 ```python
+from celearn.metrics import mean_squared_error
+
 y_test = [[1], [2], [3], [4], [1], [2], [3]]
 y_pred = [[1], [2], [3], [3], [1], [2], [3]]
 
@@ -129,6 +132,8 @@ mean_squared_error(y_hat, y_test)
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)
 
 ```python
+from celearn.metrics import accuracy_score
+
 y_test = [[1], [2], [3], [4], [1], [2], [3]]
 y_pred = [[1], [2], [3], [3], [1], [2], [3]]
 
@@ -142,6 +147,8 @@ accuracy_score(y_test, y_pred)
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)
 
 ```python
+from celearn.metrics import precision_score
+
 y_test = [[1], [0], [1], [1], [0]]
 y_pred = [[1], [1], [1], [1], [0]]
 
@@ -155,6 +162,8 @@ precision_score(y_hat, y_test)
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)
 
 ```python
+from celearn.metrics import recall_score
+
 y_test = [[1], [0], [1], [1], [0]]
 y_pred = [[1], [1], [1], [1], [0]]
 
@@ -168,6 +177,8 @@ recall_score(y_hat, y_test)
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)
 
 ```python
+from celearn.metrics import f1_score
+
 y_test = [[1], [0], [1], [1], [0]]
 y_pred = [[1], [1], [1], [1], [0]]
 
@@ -181,6 +192,8 @@ f1_score(y_hat, y_test)
 - [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)
 
 ```python
+from celearn.metrics import classification_report
+
 y_test = [[1], [2], [3], [4], [1], [2], [3]]
 y_pred = [[1], [2], [3], [3], [1], [2], [3]]
 
