@@ -47,6 +47,25 @@ accuracy_score(y_hat, y_test)
 >>> 1.0
 ```
 
+## svm.LinearSVC()
+- Classifier model that uses support vector machine to predict classifications. Currently only supports binary classification
+- [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html)
+
+```python 
+from celearn.svm import LinearSVC
+
+X_train = [[1, 2], [1, 1], [0, 1], [6, 8], [6, 9], [5, 10]]
+y_train = [[1], [1], [1], [-1], [-1], [-1]]
+X_test = [[1, 0], [0, 0], [7, 8], [6, 7]]
+y_test = [[1], [1], [-1], [-1]]
+
+clf = LinearSVC()
+clf.fit(X_train, y_train)
+y_hat = clf.predict(X_test)
+accuracy_score(y_hat, y_test)
+>>> 1.0
+```
+
 ## ensemble.RandomForest()
 - Random forest classifier that fits a number of decision tree classifiers on sub samples of data and uses averaging to improve accuracy, as well as limiting over fitting.
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
