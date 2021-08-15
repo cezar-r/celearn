@@ -3,30 +3,30 @@ Recreating SKLearn Library From Scratch
 
 # Table of Contents
 - linear_models
-    - [linear_models.LinearRegression()](#linear-regression)
-    - [linear_models.LogisticRegression()](#logistic-regression)
-    - [linear_models.SGDClassifier()](#sgd-classifier)
-    - [linear_models.Lasso()](#lasso)
+    - [LinearRegression()](#linear-regression)
+    - [LogisticRegression()](#logistic-regression)
+    - [SGDClassifier()](#sgd-classifier)
+    - [Lasso()](#lasso)
 - Neighbors
-    - [neighbors.KNearestNeighbors()](#knn)
+    - [KNearestNeighbors()](#knn)
 - SVM
-    - [svm.LinearSVC()](#linear-svc)
+    - [LinearSVC()](#linear-svc)
 - Ensemble
-    - [ensemble.RandomForest()](#random-forests)
+    - [RandomForest()](#random-forests)
 - Naive Bayes
-    - [naive_bayes.GaussianNB()](#gaussian-nb)
+    - [GaussianNB()](#gaussian-nb)
 - Vectorizer
-    - [vectorizer.CountVectorizer()](#count-vectorizer)
-    - [vectorizer.TFIDF()](#tfidf)
+    - [CountVectorizer()](#count-vectorizer)
+    - [TFIDF()](#tfidf)
 - Model Selection
-    - [model_selection.train_test_split(X, y)](#train-test-split)
+    - [train_test_split()](#train-test-split)
 - Metrics
-    - [metrics.mean_squared_error(y_hat, y_test)](#mse)
-    - [metrics.accuracy_score(y_hat, y_test)](#accuracy)
-    - [metrics.precision_score(y_hat, y_test)](#precision)
-    - [metrics.recall_score(y_hat, y_test)](#recall)
-    - [metrics.f1_score(y_hat, y_test)](#f1)
-    - [metrics.classification_report(y_hat, y_test)](#classification-report)
+    - [mean_squared_error()](#mse)
+    - [accuracy_score()](#accuracy)
+    - [precision_score()](#precision)
+    - [recall_score()](#recall)
+    - [f1_score()](#f1)
+    - [classification_report()](#classification-report)
 
 
 # Documentation
