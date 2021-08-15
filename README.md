@@ -113,6 +113,26 @@ df.to_numpy()
 >>>  [0.5 0.5 0.  1.  0.  0.5 1. ]]
 ```
 
+## model_selection.train_test_split(X, y)
+- Splits X and y into training and testing data. Default test size is .25
+- [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
+
+```python
+from celearn.model_selection import train_test_split
+
+X = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+y = [[1], [0], [1]]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+X_train, y_train
+>>> ([4, 5, 6], [7, 8, 9])
+>>> ([0], [1])
+X_test, y_test
+>>> ([1, 2, 3],)
+>>> ([1],)
+```
+
 ## metrics.mean_squared_error(y_hat, y_test)
 - Returns the mean squared error between two lists
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)
