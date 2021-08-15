@@ -9,13 +9,12 @@ class LinearRegression:
 		self.learning_rate = learning_rate
 		self.num_epochs = num_epochs
 
-
-
 	def fit(self, X_train, y_train):
 		if type(X_train) is not np.array:
 			X_train = np.array(X_train)
 		if type(y_train) is not np.array:
 			y_train = np.array(y_train)
+			
 		X_train = np.hstack((np.ones((X_train.shape[0],1)), X_train))
 		self.theta = np.zeros((X_train.shape[1], 1))
 		rows = X_train.shape[0]
@@ -45,7 +44,6 @@ class LogisticRegression:
 		self.learning_rate = learning_rate
 		self.num_epochs = num_epochs
 
-
 	def fit(self, X_train, y_train):
 		if type(X_train) is not np.array:
 			X_train = np.array(X_train)
@@ -56,8 +54,7 @@ class LogisticRegression:
 		weights = weights[:, np.newaxis]
 		for _ in range(self.num_epochs):
 			pred = self._sigmoid(np.dot(X_train, weights))
-			weights -= self.learning_rate * (dot / len(X_train))
-
+			weights -= self.learning_rate * np.dot(X_train.T, pred - y_train) / len(X_train)
 		self.weights = weights 
 
 	def predict(self, X_test):
@@ -65,7 +62,7 @@ class LogisticRegression:
 			X_test = np.array(X_test)
 
 		_pred = np.dot(X_test, self.weights)
-		return [[1] if i > 0.5 else [0] for i in self._sigmoid(_pred)]
+		return [[1] if i >= 0.5 else [0] for i in self._sigmoid(_pred)]
 
 	def _sigmoid(self, num):
 		return 1 / (1 + np.e**(-num))
@@ -91,9 +88,8 @@ class SGDClassifier:
 				error = y_train[i][0] - y_hat
 				sum_error += error **2
 				coef[0] = coef[0] + self.learning_rate * error * y_hat * (1 - y_hat)
-				for j in range(len(X_train[i]) - 1):
-					coef[j + 1] = coef[j + 1] + self.learning_rate * error * y_hat * (1 - y_hat) * X_train[i][j]
-	
+				for j in range(len(X_train[i])):
+					coef[j] = coef[j] + self.learning_rate * error * y_hat * (1 - y_hat) * X_train[i, j]
 		self.coef = coef
 
 
@@ -109,50 +105,3 @@ class SGDClassifier:
 		for i in range(len(X_test)):
 			preds.append([round(self._predict(X_train[i], self.coef))])
 		return preds
-
-
-if __name__ == '__main__':
-
-	X_train = [[1, 2],
-				[1, 1], 
-				[0, 1],
-				[6, 8],
-				[6, 9],
-				[5, 10]]
-
-	y_train = [[1],
-		[1],
-		[1],
-		[0],
-		[0],
-		[0]]
-
-	X_test = [[1, 0],
-			[0, 0],
-			[7, 8],
-			[6, 7]]
-
-	y_test = [[1],
-			[1],
-			[0],
-			[0]]
-
-	clf = SGDClassifier()
-	clf.fit(X_train, y_train)
-	y_hat = clf.predict(X_test)
-	print(y_hat)
-
-	num_epochs = range(20, 500, 10)
-
-	learning_rate = np.linspace(.001, .05, 48)
-
-	# for i in learning_rate:
-	# 	for j in range(20, 500, 10):
-	# 		num_epochs = j
-	# 		learning_rate = i
-	# 		clf = LogisticRegression(num_epochs = num_epochs, learning_rate = learning_rate)
-	# 		clf.fit(X_train, y_train)
-	# 		y_hat = clf.predict(X_test)
-	# 		if accuracy_score(y_hat, y_test) > .7:
-	# 			print(num_epochs, ':', learning_rate)
-	# 	print(i)
