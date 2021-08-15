@@ -64,34 +64,3 @@ class LinearSVC:
 
 	def _relabel_y(self, y):
 		return [i if i == [self.pos_label] else [-1] for i in y]
-
-
-if __name__ == '__main__':
-	X_train = [[1, 2],
-			[1, 1], 
-			[0, 1],
-			[6, 8],
-			[6, 9],
-			[5, 10]]
-
-	y_train = [[1],
-			[1],
-			[1],
-			[-1],
-			[-1],
-			[-1]]
-
-	X_test = [[1, 0],
-			[0, 0],
-			[7, 8],
-			[6, 7]]
-
-	y_test = [[1],
-			[1],
-			[-1],
-			[-1]]
-
-	clf = LinearSVC()
-	clf.fit(X_train, y_train)
-	y_hat = clf.predict(X_test)
-	print(y_hat)
