@@ -55,11 +55,11 @@ class TFIDF:
 
 		# term frequency
 		word_count = self._total_count(corpus)
-		tfidf = {}
+		self._tfidf = {}
 		for k in dt_dict:
-			tfidf[k] = {}
+			self._tfidf[k] = {}
 			for word in dt_dict[k]:
-				tfidf[k][word] = dt_dict[k][word] / word_count[word]
+				self._tfidf[k][word] = dt_dict[k][word] / word_count[word]
 		if self.retval == 'df':
 			return self.to_pandas()
 		elif self.retval == 'np':
@@ -81,7 +81,7 @@ class TFIDF:
 		return clean_corpus
 	
 	def to_numpy(self):
-		return pd.DataFrame(self.tfidf).T.to_numpy()
+		return pd.DataFrame(self._tfidf).T.to_numpy()
 
 	def to_pandas(self):
-		return pd.DataFrame(self.tfidf).T
+		return pd.DataFrame(self._tfidf).T
