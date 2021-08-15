@@ -87,6 +87,31 @@ X
 >>> [[1, 2, 0, 2, 2, 2], [0, 1, 1, 0, 1, 1]]
 ```
 
+## tfidf.TFIDF()
+- Returns a TFIDF as dict, pandas DataFrame, or numpy matrix
+- [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
+
+```python
+from celearn.vectorizer import TFIDF
+corpus =[['This is a dog and this is a dog'],
+         ['This is a cat'],
+         ['This is a frog']]
+
+labels = [[0], 
+          [1],
+          [1]]
+          
+tfidf = TFIDF(retval = 'df')
+df = tfidf.fit(corpus, labels)
+df
+>>>     is  this  and  frog  dog    a  cat
+>>>  0  0.5   0.5  1.0   0.0  1.0  0.5  0.0
+>>>  1  0.5   0.5  0.0   1.0  0.0  0.5  1.0
+df.to_numpy()
+>>> [[0.5 0.5 1.  0.  1.  0.5 0. ]
+>>>  [0.5 0.5 0.  1.  0.  0.5 1. ]]
+```
+
 ## metrics.mean_squared_error(y_hat, y_test)
 - Returns the mean squared error between two lists
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)
