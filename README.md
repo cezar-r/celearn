@@ -26,6 +26,48 @@ mean_squared_error(y_hat, y_test)
 >>> 0.006649689595207451
 ```
 
+## linear_models.LogisticRegression()
+- Uses the logisitc regression algorithim to predict classification
+- [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+
+```python
+from celearn.linear_models import LogisticRegression
+
+X_train = [[1, 2], [1, 1], [0, 1], [6, 8], [6, 9], [5, 10]]
+y_train = [[1], [1], [1], [0], [0], [0]]
+X_test = [[1, 0], [0, 0], [7, 8], [6, 7]]
+y_test = [[1], [1], [0], [0]]
+
+clf = LogisticRegression()
+clf.fit(X_train, y_train)
+y_hat = clf.predict(X_test)
+
+from celearn.metrics import accuracy_score
+accuracy_score(y_hat, y_test)
+>>> 1.0
+```
+
+## linear_models.SGDClassifier()
+- Uses logistic regression to predict classification, with stochastic gradient descent as the optimizer
+- [SKLearn version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html) 
+
+```python
+from celearn.linear_models import SGDClassifier
+
+X_train = [[1, 2], [1, 1], [0, 1], [6, 8], [6, 9], [5, 10]]
+y_train = [[1], [1], [1], [0], [0], [0]]
+X_test = [[1, 0], [0, 0], [7, 8], [6, 7]]
+y_test = [[1], [1], [0], [0]]
+
+clf = SGDClassifier()
+clf.fit(X_train, y_train)
+y_hat = clf.predict(X_test)
+
+from celearn.metrics import accuracy_score
+accuracy_score(y_hat, y_test)
+>>> 1.0
+```
+
 ## neighbors.KNearestNeighbors()
 - Classifier model that uses a k-nearest neighbor voting system to classify
 - [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
