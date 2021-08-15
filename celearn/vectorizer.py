@@ -61,7 +61,9 @@ class TFIDF:
 			for word in dt_dict[k]:
 				tfidf[k][word] = dt_dict[k][word] / word_count[word]
 		if self.retval == 'df':
-			return pd.DataFrame(tfidf).T
+			return self.to_pandas()
+		elif self.retval == 'np':
+			return self.to_numpy()
 		else:
 			return tfidf
 
