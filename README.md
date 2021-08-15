@@ -21,7 +21,7 @@ clf = LinearRegression()
 clf.fit(X_train, y_train)
 y_hat = clf.predict(X_test)
 
-from celearn.metrics import rmse
+from celearn.metrics import mean_squared_error
 mean_squared_error(y_hat, y_test)
 >>> 0.006649689595207451
 ```
@@ -66,6 +66,27 @@ y_hat = clf.predict(X_test)
 from celearn.metrics import accuracy_score
 accuracy_score(y_hat, y_test)
 >>> 1.0
+```
+
+## linear_models.Lasso()
+- Linear model that is trained with L1 prior as the regularizer
+- [SKLearn Version](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html)
+
+```python
+from celearn.linear_models import Lasso
+
+X_train = [[1, 2], [1, 1], [0, 1], [6, 8], [6, 9], [5, 10]]
+y_train = [[1], [1], [1], [0], [0], [0]]
+X_test = [[1, 0], [0, 0], [7, 8], [6, 7]]
+y_test = [[1], [1], [0], [0]]
+
+clf = Lasso()
+clf.fit(X_train, y_train)
+y_hat = clf.predict(X_test)
+
+from celearn.metrics import mean_squared_error
+mean_squared_error(y_hat, y_test)
+>>> 0.07778466006128645
 ```
 
 ## neighbors.KNearestNeighbors()
