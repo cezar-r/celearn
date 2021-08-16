@@ -1,4 +1,12 @@
-# knn with no numpy
+#!/usr/bin/env python
+# coding: utf-8
+
+"""
+Contains "neighbors" algorithms to classify labels
+	KNearestNeighbors() uses no external libraries
+"""
+
+
 from math_ops import mode
 
 class KNearestNeighbors:
