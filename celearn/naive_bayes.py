@@ -15,7 +15,7 @@ class GaussianNB:
 		
 		Parameters
 		----------
-		X_train: np.array (n, n)
+		X_train: np.array (n, m)
 		y_train: np.array (n, 1)
 		"""
 		if type(X_train) is not np.array:
@@ -37,7 +37,7 @@ class GaussianNB:
 		
 		Parameters
 		----------
-		X_test: np.array (n, n)
+		X_test: np.array (n, m)
 		"""
 		if type(X_test) is not np.array:
 			X_test = np.array(X_test)
@@ -51,7 +51,7 @@ class GaussianNB:
 		
 		Parameters
 		----------
-		X_train: np.array (n, n)
+		X_train: np.array (n, m)
 		y_train: np.array (n, 1)
 		"""
 		# convert to pandas first
