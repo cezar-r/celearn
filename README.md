@@ -7,20 +7,20 @@ Recreating SKLearn Library From Scratch
     - [LogisticRegression()](#logisticregression)
     - [SGDClassifier()](#sgdclassifier)
     - [Lasso()](#lasso)
-- Neighbors
+- neighbors
     - [KNearestNeighbors()](#knn)
-- SVM
+- svm
     - [LinearSVC()](#linearsvc)
-- Ensemble
+- ensemble
     - [RandomForest()](#randomforests)
-- Naive Bayes
+- naive_bayes
     - [GaussianNB()](#gaussiannb)
-- Vectorizer
+- vectorizer
     - [CountVectorizer()](#countvectorizer)
     - [TFIDF()](#tfidf)
-- Model Selection
+- model_selection
     - [train_test_split()](#traintestsplit)
-- Metrics
+- metrics
     - [mean_squared_error()](#mse)
     - [accuracy_score()](#accuracy)
     - [precision_score()](#precision)
