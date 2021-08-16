@@ -2,7 +2,7 @@
 # coding: utf-8
 
 """
-Contains Naive Bayes Algorithms
+Contains Naive Bayes algorithms
 """
 
 import numpy as np
