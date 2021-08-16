@@ -12,14 +12,14 @@ Recreating SKLearn Library From Scratch
 - svm
     - [LinearSVC()](#linearsvc)
 - ensemble
-    - [RandomForest()](#randomforests)
+    - [RandomForest()](#randomforest)
 - naive_bayes
     - [GaussianNB()](#gaussiannb)
 - vectorizer
     - [CountVectorizer()](#countvectorizer)
-    - [TFIDF()](#termfrequencyinversedocumentfrequency)
+    - [TFIDF()](#tfidf)
 - model_selection
-    - [train_test_split()](#traintestsplit)
+    - [train_test_split()](#train_test_split)
 - metrics
     - [mean_squared_error()](#mse)
     - [accuracy_score()](#accuracy)
