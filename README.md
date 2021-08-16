@@ -21,12 +21,12 @@ Recreating SKLearn Library From Scratch
 - model_selection
     - [train_test_split()](#train_test_split)
 - metrics
-    - [mean_squared_error()](#mse)
-    - [accuracy_score()](#accuracy)
-    - [precision_score()](#precision)
-    - [recall_score()](#recall)
-    - [f1_score()](#f1)
-    - [classification_report()](#classificationreport)
+    - [mean_squared_error()](#mean_squared_error)
+    - [accuracy_score()](#accuracy_score)
+    - [precision_score()](#precision_score)
+    - [recall_score()](#recall_score)
+    - [f1_score()](#f1_score)
+    - [classification_report()](#classification_report)
 
 
 # Documentation
