@@ -1,5 +1,21 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+"""Contains various metrics to measure reliability of models"""
+
 def accuracy_score(pred_arr, true_arr):
-	pred_arr, true_arr = _convert(pred_arr, true_arr)
+	"""Accuracy formula: True Positve / Length of Data
+	
+	Parameters
+	----------
+	pred_arr: list
+	true_arr: list
+	
+	Returns
+	-------
+	tp / len(pred_arr): float
+	"""
+	pred_arr, true_arr = _to_list(pred_arr, true_arr)
 
 	tp = 0
 	for i, j in list(zip(pred_arr, true_arr)):
@@ -9,7 +25,19 @@ def accuracy_score(pred_arr, true_arr):
 
 
 def precision_score(pred_arr, true_arr, pos_label = 1):
-	pred_arr, true_arr = _convert(pred_arr, true_arr)
+	"""Precision formula: True Positive / (True Positive + False Positive)
+	
+	Parameters
+	----------
+	pred_arr: list
+	true_arr: list
+	pos_label: any type
+	
+	Returns
+	-------
+	tp / (tp + fp): float
+	"""
+	pred_arr, true_arr = _to_list(pred_arr, true_arr)
 
 	tp = 0
 	fp = 0
@@ -22,7 +50,19 @@ def precision_score(pred_arr, true_arr, pos_label = 1):
 
 
 def recall_score(pred_arr, true_arr, pos_label = 1):
-	pred_arr, true_arr = _convert(pred_arr, true_arr)
+	"""Recall formula: True Positive / (True Positive + False Negative)
+	
+	Parameters
+	----------
+	pred_arr: list
+	true_arr: list
+	pos_label: any type
+	
+	Returns
+	-------
+	tp / (tp + fn): float
+	"""
+	pred_arr, true_arr = _to_list(pred_arr, true_arr)
 
 	tp = 0
 	fn = 0
@@ -35,7 +75,19 @@ def recall_score(pred_arr, true_arr, pos_label = 1):
 
 
 def f1_score(pred_arr, true_arr, pos_label = 1):
-	pred_arr, true_arr = _convert(pred_arr, true_arr)
+	"""F1 formula: 2 ((Precision * Recall) / (Precision + Recall))
+	
+	Parameters
+	----------
+	pred_arr: list
+	true_arr: list
+	pos_label: any type
+	
+	Returns
+	-------
+	2 * ((precision * recall) / (precision + recall)): float
+	"""
+	pred_arr, true_arr = _to_list(pred_arr, true_arr)
 
 	recall = recall_score(pred_arr, true_arr, pos_label)
 	precision = precision_score(pred_arr, true_arr, pos_label)
@@ -43,7 +95,19 @@ def f1_score(pred_arr, true_arr, pos_label = 1):
 
 
 def classification_report(pred_arr, true_arr):
-	pred_arr, true_arr = _convert(pred_arr, true_arr)
+	"""Returns a classification report for each label
+	Report contains precison, recall, f1 and number of classes in total
+
+	Parameters
+	----------
+	pred_arr: list
+	true_arr: list
+	
+	Returns
+	-------
+	report: ClassificationReport()
+	"""
+	pred_arr, true_arr = _to_list(pred_arr, true_arr)
 
 	labels = [i[0] for i in true_arr]
 	labels_set = list(set(labels))
@@ -62,8 +126,19 @@ def classification_report(pred_arr, true_arr):
 	return report
 
 
-def rmse(pred_arr, true_arr):
-	pred_arr, true_arr = _convert(pred_arr, true_arr)	
+def mean_squared_error(pred_arr, true_arr):
+	"""Mean Squared Error Formula: sum((pred_arr_i - true_arr_i)**2)
+	
+	Parameters
+	----------
+	pred_arr: list
+	true_arr: list
+	
+	Returns
+	-------
+	error / len(pred_arr): float
+	"""
+	pred_arr, true_arr = _to_list(pred_arr, true_arr)	
 
 	error = 0
 	for i, j in list(zip(pred_arr, true_arr)):
@@ -71,7 +146,19 @@ def rmse(pred_arr, true_arr):
 	return error / len(pred_arr)
 
 
-def _convert(pred_arr, true_arr):
+def _to_list(pred_arr, true_arr):
+	"""Converts non-list types (such as np arrays and pandas Series and DataFrames) to lists
+	
+	Parameters
+	----------
+	pred_arr: list
+	true_arr: list
+	
+	Returns
+	-------
+	pred_arr: list
+	true_arr: list
+	"""
 	if type(pred_arr) is not list:
 		pred_arr = pred_arr.tolist()
 	if type(true_arr) is not list:
@@ -80,11 +167,20 @@ def _convert(pred_arr, true_arr):
 	return pred_arr, true_arr
 
 
-
-
 class ClassificationReport:
+	"""Object in which returns a formatted string, which can be accessed as a dictionary as well"""
 
 	def __init__(self, labels, precision_scores, recall_scores, f1_scores, support):
+		"""Initalizes the scores for each metric
+
+		Parameters
+		----------
+		labels: list
+		precision_scores: list
+		recall_scores: list
+		f1_scores: list
+		support: list
+		"""
 		self.labels = labels
 		self.precision_scores = precision_scores
 		self.recall_scores = recall_scores
@@ -94,7 +190,12 @@ class ClassificationReport:
 		self._output_dict()
 
 	def __repr__(self):
-
+		"""Creates formatted string
+		
+		Returns
+		-------
+		retval: str
+		"""
 		length = len(max(self._labels + self._precision_scores + self._recall_scores + self._f1_scores + self._support, key = len)) + 4
 		if length < 9:
 			length = 12
@@ -106,6 +207,7 @@ class ClassificationReport:
 		return retval
 
 	def _stringify(self):
+		"""Converts each element in each list to string"""
 		self._labels = [str(i) for i in self.labels]
 		self._precision_scores = [str(i) for i in self.precision_scores]
 		self._recall_scores = [str(i) for i in self.recall_scores]
@@ -113,20 +215,15 @@ class ClassificationReport:
 		self._support = [str(i) for i in self.support]
 
 	def _output_dict(self):
+		"""Creates dictionary that contains all of the data
+		
+		Returns
+		-------
+		self.as_dict: dict
+		"""
 		self.as_dict = {}
 		for i, label in enumerate(self.labels):
 			self.as_dict[label] = {'precision' : self.precision_scores[i], 'recall' : self.recall_scores[i], 'f1-score' : self.f1_scores[i], 'support' : self.support[i]}
 		return self.as_dict
-
-
-
-
-if __name__ == '__main__':
-
-	y_test = [[1], [2], [3], [4], [1], [2], [3]]
-	y_pred = [[1], [2], [3], [3], [1], [2], [3]]
-
-	report = classification_report(y_pred, y_test)
-	print(report)
-	print(report.as_dict)
-
+	
+	
