@@ -8,7 +8,7 @@ Recreating SKLearn Library From Scratch
     - [SGDClassifier()](#sgdclassifier)
     - [Lasso()](#lasso)
 - neighbors
-    - [KNearestNeighbors()](#knn)
+    - [KNearestNeighbors()](#knearestneighbors)
 - svm
     - [LinearSVC()](#linearsvc)
 - ensemble
@@ -17,7 +17,7 @@ Recreating SKLearn Library From Scratch
     - [GaussianNB()](#gaussiannb)
 - vectorizer
     - [CountVectorizer()](#countvectorizer)
-    - [TFIDF()](#tfidf)
+    - [TFIDF()](#termfrequencyinversedocumentfrequency)
 - model_selection
     - [train_test_split()](#traintestsplit)
 - metrics
