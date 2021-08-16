@@ -1,9 +1,23 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+"""
+Contains Naive Bayes Algorithms
+"""
+
 import numpy as np
 import pandas as pd
 
 class GaussianNB:
 
 	def fit(self, X_train, y_train):
+		"""Main function used to calculate prior probabilites
+		
+		Parameters
+		----------
+		X_train: np.array (n, n)
+		y_train: np.array (n, 1)
+		"""
 		if type(X_train) is not np.array:
 			X_train = np.array(X_train)
 		if type(y_train) is not np.array:
@@ -19,6 +33,12 @@ class GaussianNB:
 
 
 	def predict(self, X_test):
+		"""Casts a prediction using trained prior probabilites
+		
+		Parameters
+		----------
+		X_test: np.array (n, n)
+		"""
 		if type(X_test) is not np.array:
 			X_test = np.array(X_test)
 
@@ -27,19 +47,39 @@ class GaussianNB:
 
 
 	def _calc_stats(self, X_train, y_train):
+		"""Calculates the mean and variance for each label
+		
+		Parameters
+		----------
+		X_train: np.array (n, n)
+		y_train: np.array (n, 1)
+		"""
 		# convert to pandas first
 		X_train = pd.DataFrame(X_train)
-
 		self.mean = X_train.groupby(y_train.flatten()).apply(np.mean).to_numpy()
 		self.var = X_train.groupby(y_train.flatten()).apply(np.var).to_numpy()
 
 
 	def _calc_prior(self, X_train, y_train):
-		X_train = pd.DataFrame(X_train)
+		"""Calculates prior probability
 		
+		Parameters
+		----------
+		X_train: np.array (n, n)
+		y_train: np.array (n, 1)
+		"""
+		# convert to pandas first
+		X_train = pd.DataFrame(X_train)
 		self.prior = (X_train.groupby(y_train.flatten()).apply(lambda x : len(x)) / self.num_rows).to_numpy()
 
 	def _gaussian(self, cls_idx, row):
+		"""Gaussian formula
+		
+		Parameters
+		----------
+		class_idx: int
+		row: np.array (n,)
+		"""
 		mean = self.mean[cls_idx]
 		var = self.var[cls_idx]
 
@@ -50,6 +90,12 @@ class GaussianNB:
 
 
 	def _calc_posterior(self, row):
+		"""Helper function used to predict labels
+		
+		Parameters
+		----------
+		row: np.array (n,)
+		"""
 		posteriors = []
 		for i in range(self.num_classes):
 			prior = np.log(self.prior[i])
